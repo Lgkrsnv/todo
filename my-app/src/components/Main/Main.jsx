@@ -1,7 +1,20 @@
+import { useMainThemeContext } from "../../context/MainThemeContext";
+import { TodoList } from "../TodoList/TodoList";
+
 export const Main = () => {
-  return(
+  const {mainTheme, setMainTheme} = useMainThemeContext()
+  const changeTheme = () => {
+    if (mainTheme === 'light') {
+      setMainTheme('dark')
+    } else {
+      setMainTheme('light')
+    }
+    console.log(mainTheme);
+  }
+  return (
     <>
-    Main
+    <button onClick={changeTheme}>Change theme</button>
+      <TodoList />
     </>
-  )
-}
+  );
+};
