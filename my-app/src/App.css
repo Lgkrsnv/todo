@@ -1,7 +1,17 @@
 .App {
   text-align: center;
+  background-color: blue;
 }
-
+.App.dark {
+  text-align: center;
+  background-color: rgb(57, 57, 63);
+  color: white;
+}
+.App.light {
+  text-align: center;
+  background-color: rgb(224, 224, 228);
+  color: #282c34;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
