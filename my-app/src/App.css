@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background-color: blue;
+  min-height: 100vh;
 }
 .App.dark {
   text-align: center;
