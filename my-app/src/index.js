@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
+import 'antd/dist/antd.css'; 
 import { MainThemeContextProvider } from "./context/MainThemeContext";
 import { BrowserRouter } from "react-router-dom";
 //redux

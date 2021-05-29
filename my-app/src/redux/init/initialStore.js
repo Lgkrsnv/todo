@@ -1,4 +1,4 @@
 export const initialStore = {
   todos: [],
-  users: [],
+  user: { isLogin: false },
 };
