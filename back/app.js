@@ -14,7 +14,11 @@ const MongoStore = require("connect-mongo");
 const bcrypt = require("bcrypt");
 // импорт middleware для проверки сессий
 
+const usersRouter = require('./routers/users');
+const todosRouter = require('./routers/todos');
+
 const Todo = require("./models/Todo");
+const User = require("./models/User");
 
 function cookiesCleaner(req, res, next) {
   // если куки есть и нет текущей сессии, то чистим куки
@@ -34,6 +38,8 @@ app.use(
     credentials: true,
   })
 );
+app.use(morgan('dev'));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -58,10 +64,8 @@ app.use(sessionMiddleware);
 // подключаем middleware для чистки куки
 app.use(cookiesCleaner);
 
-app.get("/api/v1/todos/", async (req, res, next) => {
-  const todos = await Todo.find().lean();
-  res.json({ todos });
-});
+app.use('/api/v1/users', usersRouter);
+app.use('/api/v1/todos', todosRouter);
 
 app.listen(PORT, async () => {
   mongoose
