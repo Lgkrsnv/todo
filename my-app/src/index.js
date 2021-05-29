@@ -14,6 +14,7 @@ import { rootReducer } from "./redux/reducers/rootReducer.js";
 import { initialStore } from "./redux/init/initialStore";
 //saga, thunk
 import TodoSagaWatcher from "./redux/saga/TodoSaga";
+import userSagaWatcher from "./redux/saga/userSaga";
 import thunk from "redux-thunk";
 import createSagaMiddleware from "redux-saga";
 const sagaMiddleware = createSagaMiddleware();
@@ -32,6 +33,7 @@ store.subscribe(() => {
 });
 
 sagaMiddleware.run(TodoSagaWatcher);
+sagaMiddleware.run(userSagaWatcher);
 
 ReactDOM.render(
   <React.StrictMode>

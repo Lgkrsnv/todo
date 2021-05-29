@@ -11,7 +11,7 @@ const session = require("express-session");
 const path = require("path");
 // импорт класса для хранения сессий
 const MongoStore = require("connect-mongo");
-const bcrypt = require("bcrypt");
+
 // импорт middleware для проверки сессий
 
 const usersRouter = require('./routers/users');
@@ -28,7 +28,6 @@ function cookiesCleaner(req, res, next) {
   next();
 }
 
-const saltRounds = 10;
 const app = express();
 const PORT = 7000;
 

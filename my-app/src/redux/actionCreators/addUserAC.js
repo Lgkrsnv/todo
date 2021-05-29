@@ -1,11 +1,16 @@
-import {ADD_USER, ADD_USER_SAGA} from '../types'
+import {ADD_USER, SIGNUP_USER_SAGA, LOGIN_USER_SAGA} from '../types'
 
 export const addUser = (user) => ({
   type: ADD_USER,
   payload: user
 })
 
-export const addUserSaga = (values) => ({
-  type: ADD_USER_SAGA,
+export const signupUserSaga = (values) => ({
+  type: SIGNUP_USER_SAGA,
+  payload: values
+})
+
+export const loginUserSaga = (values) => ({
+  type: LOGIN_USER_SAGA,
   payload: values
 })
