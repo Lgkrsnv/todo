@@ -6,9 +6,9 @@ export const userReducer = (state={}, action) => {
           console.log('reducer signup', action.payload);
           return  { ...state, 
             isLogin: !state.isLogin,
-            userId: action.payload.id,
-            username: action.payload.username
+            username: action.payload
         };
+
         case DELETE_USER:
           return  { 
             isLogin: false,

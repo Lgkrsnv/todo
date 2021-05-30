@@ -11,12 +11,33 @@ const User = require("../models/User");
 //   }
 // };
 
-router.get("/", async (req, res) => {
+router.get("/:username", async (req, res) => {
+  const { username } = req.params;
   try {
-    const todo = await Todo.find().lean();
-    return res.status(200).json({ todo });
+    const user = await User.findOne({username}).lean();
+    console.log('user', user);
+    const todos =  await Promise.all(user.todos.map(async(todoObjId) => {
+     return  await Todo.findOne({_id: String(todoObjId._id)})
+    }));
+    console.log(todos);
+    return res.status(200).json({ todos });
   } catch (error) {
     return res.status(501).json({ error });
+  }
+});
+
+router.post("/", async (req, res) => {
+  const { text, username } = req.body;
+  console.log("insidde", text, username);
+  try {
+    const todo = await Todo.create({ text: text });
+    const user = await User.findOneAndUpdate(
+      { username: username },
+      { $push: { todos: todo._id } }
+    );
+    return res.status(200).json({ todo });
+  } catch (error) {
+    return res.status(502).json({ error });
   }
 });
 

@@ -5,7 +5,10 @@ export const addTodo = (todo) => ({
   payload: todo
 })
 
-export const addTodoSaga = (values) => ({
+export const addTodoSaga = (text, username) => ({
   type: ADD_TODO_SAGA,
-  payload: values
+  payload: {
+    text,
+    username
+  }
 })

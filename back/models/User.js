@@ -4,7 +4,7 @@ const userSchema = new mongoose.Schema({
 
     username: {type: String, required: true, unique: true},
     password: { type: String, required: true },
-    todos: { type: mongoose.Schema.Types.ObjectId, ref: 'todos' },
+    todos: [{ type: mongoose.Schema.Types.ObjectId, ref: 'todos' }],
 
 });
 

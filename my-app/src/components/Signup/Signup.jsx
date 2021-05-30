@@ -30,6 +30,8 @@ const tailLayout = {
   const onFinish = async (values) => {
     console.log('Success:', values);
     dispatch(signupUserSaga(values));
+    // localStorage.setItem('USER', { username: userState.username });
+
     history.push('/')
   };
 
@@ -75,7 +77,7 @@ const tailLayout = {
             <Input.Password />
           </Form.Item>
           <Form.Item {...tailLayout}>
-            <Button type="primary" style={{ background: '#DFFF00', borderColor: "yellow" }} htmlType="submit">
+            <Button type="primary" style={{ background: '#DFFF00', borderColor: "yellow", color: "#7ec1ff" }} htmlType="submit">
               Submit
             </Button>
           </Form.Item>

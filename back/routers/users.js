@@ -44,8 +44,9 @@ router.post("/signup", async (req, res, next) => {
 });
 // ручка для логина
 router.post("/login", async (req, res) => {
+  const { username, password } = req.body;
+  console.log(username, password);
   try {
-    const { username, password } = req.body.values;
     // ищем юзера в базе данных
     const user = await User.findOne({ username });
     // проверка (если юзер есть и пароль совпадает)
@@ -54,9 +55,9 @@ router.post("/login", async (req, res) => {
       req.session.user = user;
       // console.log(req.session.user, "login req session user");
 
-      return res.status(212).json({ userId: user.id, username: user.username });
+      return res.sendStatus(212);
     } else {
-      return res.status(404).json({ error: true })
+      return res.sendStatus(404)
     }
   } catch (err) {
     return res.sendStatus(502);

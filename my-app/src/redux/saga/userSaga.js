@@ -25,8 +25,10 @@ const loginUserFetch = async (values) => {
     body: JSON.stringify(values)
   });
   const result = await response.json();
-  console.log('fetch result login', result);
-  return result;
+  console.log('fetch result login', result, typeof result);
+  if (result === 212) {
+    return values.username;
+  }
 };
 
 

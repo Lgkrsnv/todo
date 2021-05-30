@@ -30,11 +30,12 @@ export const Login = () => {
   const onFinish = async (values) => {
     dispatch(loginUserSaga(values));
 
-    if (!userState.isLogin) {
-      onFinishFailed();
-    } else {
+    // if (!userState.isLogin) {
+    //   onFinishFailed();
+    // } else {
+      // localStorage.setItem('USER', { username: userState.username });
       history.push('/');
-    }
+    // }
   };
 
   const onFinishFailed = () => {

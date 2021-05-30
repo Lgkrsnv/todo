@@ -13,6 +13,7 @@ export const Logout = () => {
   const logout = async () => {
       dispatch(deleteUser());
       if (!userState.isLogin) {
+        // localStorage.removeItem('USER');
         history.push("/login");
       }
   };

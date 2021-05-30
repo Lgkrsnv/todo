@@ -36,14 +36,14 @@ sagaMiddleware.run(TodoSagaWatcher);
 sagaMiddleware.run(userSagaWatcher);
 
 ReactDOM.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
         <MainThemeContextProvider>
           <App />
         </MainThemeContextProvider>
       </BrowserRouter>
-    </Provider>
-  </React.StrictMode>,
+    </Provider>,
+  // </React.StrictMode>,
   document.getElementById("root")
 );

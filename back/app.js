@@ -53,7 +53,7 @@ const options = {
   saveUninitialized: false,
   cookie: {
     // срок жизин куки
-    expires: 1000 * 60 * 30,
+    expires: 1000 * 60 * 1000,
   },
 };
 // подключаем middleware для использования сессий
